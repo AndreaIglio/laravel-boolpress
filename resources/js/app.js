@@ -20,16 +20,8 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component(
-    "article-component",
-    require("./components/ArticleComponent.vue").default
-);
-Vue.component(
-    "categories-component",
-    require("./components/CategoriesComponent.vue").default
-);
-Vue.component(
-    "tags-component",
-    require("./components/TagsComponent.vue").default
+    "api-component",
+    require("./components/ApiComponent.vue").default
 );
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -4,7 +4,7 @@
 
 @section('content')
 
-<tags-component></tags-component>
+<api-component api="tags"></api-component>
 
 
 @endsection

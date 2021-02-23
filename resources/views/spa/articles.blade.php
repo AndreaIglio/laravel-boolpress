@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <article-component></article-component>
+    <api-component api="articles"></api-component>
 
 
 @endsection

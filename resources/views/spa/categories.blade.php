@@ -2,6 +2,6 @@
 
 @section('content')
 
-<categories-component></categories-component>
+<api-component api="categories"></api-component>
 
 @endsection
