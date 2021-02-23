@@ -18,5 +18,8 @@ Route::get('/', function () {
 });
 
 
+
+//Api
 Route::get('articles', 'PageController@articles_api');
 Route::get('categories', 'PageController@categories_api');
+Route::get('tags', 'PageController@tags_api');

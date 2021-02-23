@@ -39,3 +39,11 @@ Route::get('categories', function () {
 
     ], 200);
 });
+Route::get('tags', function (){
+
+    return response()->json(['success' => true,
+        'data' => App\Tags::all(),
+
+], 200);
+    
+});
