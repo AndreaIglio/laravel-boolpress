@@ -25,6 +25,6 @@ Route::resource('tags', 'TagsController');
 
 
 //Api
-Route::get('articlesApi', 'PageController@articles_api');
-Route::get('categoriesApi', 'PageController@categories_api');
-Route::get('tagsApi', 'PageController@tags_api');
+Route::get('articlesApi', 'PageController@articles_api')->name('articlesApi');
+Route::get('categoriesApi', 'PageController@categories_api')->name('categoriesApi');
+Route::get('tagsApi', 'PageController@tags_api')->name('tagsApi');

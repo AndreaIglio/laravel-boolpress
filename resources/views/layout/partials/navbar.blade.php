@@ -6,13 +6,13 @@
                 <a href="/">Home</a>
             </li>
             <li class="">
-                <a href="">Articles_Api</a>
+                <a href="{{route('articlesApi')}}">Articles_Api</a>
             </li>
             <li>
-                <a href="">Categories_Api</a>
+                <a href="{{route('categoriesApi')}}">Categories_Api</a>
             </li>
             <li>
-                <a href="">Tags_Api</a>
+                <a href="{{route('tagsApi')}}">Tags_Api</a>
             </li>
             <li class="">
                 <a href="">Articles</a>

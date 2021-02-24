@@ -2017,11 +2017,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['api'],
   data: function data() {
     return {
       apiList: "",
+      categoriesList: "",
       body: this.api
     };
   },
@@ -2029,8 +2034,27 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.get("api/".concat(this.body)).then(function (response) {
-      console.log(response.data);
+      // console.log(response.data);
       _this.apiList = response.data.data;
+    })["catch"](function (error) {
+      console.log(error);
+    });
+    axios.get("api/categories").then(function (response) {
+      // console.log(response.data);
+      _this.categoriesList = response.data.data;
+
+      _this.apiList.forEach(function (element) {
+        console.log(element);
+
+        _this.categoriesList.forEach(function (category) {
+          // console.log(category.id)
+          if (element.category_id == category.id) {
+            console.log(category.name); // element.category_name = category.name
+
+            Vue.set(element, 'category_name', category.name);
+          }
+        });
+      });
     })["catch"](function (error) {
       console.log(error);
     });
@@ -37756,7 +37780,9 @@ var render = function() {
                 _c("div", { staticClass: "card-header" }, [
                   _c("h3", [_vm._v("Article: " + _vm._s(body.title))]),
                   _vm._v(" "),
-                  _c("h3", [_vm._v("Category: " + _vm._s(body.category_id))])
+                  _c("h3", [_vm._v("Category: " + _vm._s(body.category_id))]),
+                  _vm._v(" "),
+                  _c("h3", [_vm._v("Category: " + _vm._s(body.category_name))])
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "card-body" }, [
