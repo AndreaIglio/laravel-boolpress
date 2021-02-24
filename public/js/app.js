@@ -2017,18 +2017,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['api'],
   data: function data() {
@@ -37766,7 +37754,9 @@ var render = function() {
             _vm._l(_vm.apiList, function(body, index) {
               return _c("div", { key: index, staticClass: "card" }, [
                 _c("div", { staticClass: "card-header" }, [
-                  _c("h3", [_vm._v("Article: " + _vm._s(body.title))])
+                  _c("h3", [_vm._v("Article: " + _vm._s(body.title))]),
+                  _vm._v(" "),
+                  _c("h3", [_vm._v("Category: " + _vm._s(body.category_id))])
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "card-body" }, [

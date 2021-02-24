@@ -18,9 +18,13 @@ class ArticlesSeeder extends Seeder
         for ($i=0; $i < 15; $i++) { 
             
             $newArticle = new Articles();
+
+            $newArticle->category_id = $faker->numberBetween(1, 5);
+
             $newArticle->title = $faker->sentence();
             $newArticle->content = $faker->text();
             $newArticle->author = $faker->name();
+            
             $newArticle->save();
 
         }

@@ -41,9 +41,12 @@ Route::get('categories', function () {
 });
 Route::get('tags', function (){
 
-    return response()->json(['success' => true,
+    return response()->json([
+        
+        'success' => true,
         'data' => App\Tags::all(),
 
 ], 200);
     
 });
+
