@@ -5,3 +5,10 @@
 Home
 
 @endsection
+
+
+@section('navbar')
+
+@include('layout.partials.navbar')
+
+@endsection

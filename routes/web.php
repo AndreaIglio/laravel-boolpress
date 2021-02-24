@@ -18,8 +18,13 @@ Route::get('/', function () {
 });
 
 
+Route::resource('articles','ArticlesController');
+Route::resource('categories', 'CategoriesController');
+Route::resource('tags', 'TagsController');
+
+
 
 //Api
-Route::get('articles', 'PageController@articles_api');
-Route::get('categories', 'PageController@categories_api');
-Route::get('tags', 'PageController@tags_api');
+Route::get('articlesApi', 'PageController@articles_api');
+Route::get('categoriesApi', 'PageController@categories_api');
+Route::get('tagsApi', 'PageController@tags_api');

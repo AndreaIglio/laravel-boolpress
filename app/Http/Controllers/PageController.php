@@ -15,17 +15,17 @@ class PageController extends Controller
    public function articles_api(){
     
 
-        return view('spa.articles');
+        return view('spa.articlesApi');
     
     }
     public function categories_api()
     {
 
-        return view('spa.categories');
+        return view('spa.categoriesApi');
     }
     public function tags_api(
     ){
-        return view('spa.tags');
+        return view('spa.tagsApi');
 
     }
    
