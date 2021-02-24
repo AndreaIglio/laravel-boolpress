@@ -42,10 +42,8 @@
                 <div class="card" v-for="(body,index) in apiList" :key="index">              
                     <div class="card-header" >
                         <h3>Article: {{body.title}}</h3>
-                        <h3>Category: {{body.category_id}}</h3>
                         <h3>Category: {{body.category_name}}</h3>
 
-                   
                     </div>
                     <div class="card-body">                                  
                         <h3>{{body.content}}</h3>
@@ -94,15 +92,15 @@
                 // console.log(response.data);
                 this.categoriesList = response.data.data;
 
-                this.apiList.forEach(element=> {
+                this.apiList.forEach(article=> {
 
-                    console.log(element);
+                    console.log(article);
                     this.categoriesList.forEach(category=> {
                         // console.log(category.id)
-                        if(element.category_id == category.id){
+                        if(article.category_id == category.id){
                             console.log(category.name)
-                            // element.category_name = category.name
-                            Vue.set(element, 'category_name', category.name);
+                            // article.category_name = category.name
+                            Vue.set(article, 'category_name', category.name);
                         }
                     })
                 })

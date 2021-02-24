@@ -2019,8 +2019,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['api'],
   data: function data() {
@@ -2043,15 +2041,15 @@ __webpack_require__.r(__webpack_exports__);
       // console.log(response.data);
       _this.categoriesList = response.data.data;
 
-      _this.apiList.forEach(function (element) {
-        console.log(element);
+      _this.apiList.forEach(function (article) {
+        console.log(article);
 
         _this.categoriesList.forEach(function (category) {
           // console.log(category.id)
-          if (element.category_id == category.id) {
-            console.log(category.name); // element.category_name = category.name
+          if (article.category_id == category.id) {
+            console.log(category.name); // article.category_name = category.name
 
-            Vue.set(element, 'category_name', category.name);
+            Vue.set(article, 'category_name', category.name);
           }
         });
       });
@@ -37779,8 +37777,6 @@ var render = function() {
               return _c("div", { key: index, staticClass: "card" }, [
                 _c("div", { staticClass: "card-header" }, [
                   _c("h3", [_vm._v("Article: " + _vm._s(body.title))]),
-                  _vm._v(" "),
-                  _c("h3", [_vm._v("Category: " + _vm._s(body.category_id))]),
                   _vm._v(" "),
                   _c("h3", [_vm._v("Category: " + _vm._s(body.category_name))])
                 ]),

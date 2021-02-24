@@ -10948,24 +10948,27 @@ a.text-dark:focus {
   margin: 40px 0px;
 }
 
-nav {
-  padding: 0 30px;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 100px;
+.navbar {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  background: #158047;
+  border: 1px solid black;
 }
 
-nav h3 {
-  margin: 0;
+.navbar a {
+  display: block;
+  flex-grow: 1;
+  padding: 1rem;
+  font-family: sans-serif;
+  font-size: 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  color: lightyellow;
 }
 
-nav ul {
-  margin: 0;
-  list-style-type: none;
-}
-
-nav ul li {
-  padding: 0 20px;
-  display: inline;
+.navbar a:hover {
+  background: #11a011;
+  color: white;
 }
 
