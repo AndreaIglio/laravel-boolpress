@@ -9,7 +9,7 @@
 
 @section('content')
 
-<api-component api="tags"></api-component>
+<tags-component></tags-component>
 
 
 @endsection

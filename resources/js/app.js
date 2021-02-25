@@ -23,6 +23,19 @@ Vue.component(
     "api-component",
     require("./components/ApiComponent.vue").default
 );
+
+Vue.component(
+    "article-component",
+    require("./components/ArticleComponent.vue").default
+);
+Vue.component(
+    "categories-component",
+    require("./components/CategoriesComponent.vue").default
+);
+Vue.component(
+    "tags-component",
+    require("./components/TagsComponent.vue").default
+);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

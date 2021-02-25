@@ -9,6 +9,6 @@
 
 @section('content')
 
-<api-component api="categories"></api-component>
+<categories-component></categories-component>
 
 @endsection

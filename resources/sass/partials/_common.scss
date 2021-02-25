@@ -1,3 +1,29 @@
+.body {
+    overflow-x: hidden;
+}
+
 .flex {
     display: flex;
 }
+
+
+.column {
+    flex-direction: column;
+}
+
+.wrapper {
+        width: 80%;
+        padding: 50px 0px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: auto;
+        justify-content: space-between;
+  }
+  .wrapper_api {
+      width: 80%;
+      padding: 0px 0px;
+      display: flex;
+      flex-wrap: wrap;
+      margin: auto;
+      justify-content: space-between;
+  }

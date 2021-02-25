@@ -1,8 +1,8 @@
 <template>
    
-        <div class="container flex">
+        <div class="flex">
 
-                <div class="col-md-6 tags"  v-if="body == 'tags'">
+                <div class="tags"  v-if="body == 'tags'">
                 <div class="card" v-for="(body,index) in apiList" :key="index">
                     
                     <div class="card-header" >
@@ -21,7 +21,7 @@
          </div>
 
 
-                <div class="col-md-6 categories"  v-if="body == 'categories'">
+                <div class="categories"  v-if= "body == 'categories'">
                 <div class="card" v-for="(body,index) in apiList" :key="index">
                     
                     <div class="card-header" >
@@ -38,7 +38,7 @@
                 </div>
          </div>
 
-            <div class="col-md-6 articles"  v-if="body == 'articles'">
+            <div class="articles"  v-if="body == 'articles'">
                 <div class="card" v-for="(body,index) in apiList" :key="index">              
                     <div class="card-header" >
                         <h3>Title: {{body.title}}</h3>

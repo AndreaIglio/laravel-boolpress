@@ -1,7 +1,33 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+.body {
+  overflow-x: hidden;
+}
+
 .flex {
   display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.wrapper {
+  width: 80%;
+  padding: 50px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: space-between;
+}
+
+.wrapper_api {
+  width: 80%;
+  padding: 0px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: space-between;
 }
 
 /*!
@@ -10948,14 +10974,26 @@ a.text-dark:focus {
   }
 }
 
-.container {
+.card {
+  margin: 20px 0px;
+  width: 500px;
+  padding: 20px;
+  border-radius: 20px;
+  justify-content: center;
+  font-family: "Raleaway", sans-serif;
+}
+
+.card .crud {
   justify-content: center;
 }
 
-.container .card {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  width: 500px;
+.card .crud button {
+  padding: 5px 10px;
+  margin: 0px 20px;
+}
+
+.card .crud a {
+  color: white;
 }
 
 .navbar {

@@ -9,7 +9,7 @@
 @section('content')
 
 
-    <api-component api="articles"></api-component>
-
+    <!-- <api-component api="articles"></api-component> -->
+    <article-component></article-component>
 
 @endsection
