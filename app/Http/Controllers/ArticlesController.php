@@ -16,8 +16,8 @@ class ArticlesController extends Controller
      */
     public function index(Articles $article)
     {
-         $article = Articles::all();
-        return view('articles.index',compact('article'));
+         $articles = Articles::all();
+        return view('articles.index',compact('articles'));
     }
 
     /**
@@ -49,7 +49,6 @@ class ArticlesController extends Controller
      */
     public function show(Articles $article)
     {
-        $article =Articles::find($article);
         return view('articles.show', compact('article'));
     }
 
