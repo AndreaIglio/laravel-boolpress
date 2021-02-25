@@ -10992,6 +10992,13 @@ a.text-dark:focus {
   margin: 0px 20px;
 }
 
+.card .crud .undo {
+  background-color: black;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+}
+
 .card .crud a {
   color: white;
 }

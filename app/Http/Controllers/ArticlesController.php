@@ -58,9 +58,9 @@ class ArticlesController extends Controller
      * @param  \App\Articles  $articles
      * @return \Illuminate\Http\Response
      */
-    public function edit(Articles $articles)
+    public function edit(Articles $article)
     {
-        return view('articles.edit', compact('articles'));
+        return view('articles.edit', compact('article'));
     }
 
     /**
@@ -70,9 +70,16 @@ class ArticlesController extends Controller
      * @param  \App\Articles  $articles
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Articles $articles)
+    public function update(Request $request, Articles $article)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'author' => 'required',
+        ]);
+        $article->update($validatedData);
+        return redirect()->route('articles.index');
+       
     }
 
     /**
@@ -81,7 +88,7 @@ class ArticlesController extends Controller
      * @param  \App\Articles  $articles
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Articles $articles)
+    public function destroy(Articles $article)
     {
         //
     }
