@@ -14,10 +14,10 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Articles $article)
     {
-         $articles = Articles::all();
-        return view('articles.index',compact('articles'));
+         $article = Articles::all();
+        return view('articles.index',compact('article'));
     }
 
     /**
@@ -47,9 +47,10 @@ class ArticlesController extends Controller
      * @param  \App\Articles  $articles
      * @return \Illuminate\Http\Response
      */
-    public function show(Articles $articles)
+    public function show(Articles $article)
     {
-        return view('articles.show', compact('articles'));
+        $article =Articles::find($article);
+        return view('articles.show', compact('article'));
     }
 
     /**
