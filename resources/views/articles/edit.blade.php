@@ -23,7 +23,7 @@
         <input type="text" name="author" value="{{$article->author}}">
 
 
-        <h4 class="category">Category: {{$article->category->name}}</h4>
+        <p class="category">Category: {{$article->category->name}}</p>
 
         <div class="crud flex">
             <div class="undo flex">

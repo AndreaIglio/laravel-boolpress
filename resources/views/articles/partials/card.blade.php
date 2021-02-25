@@ -18,6 +18,11 @@
                 <i class="fas fa-edit"></i>
             </a>
         </button>
+        <form action="{{route('articles.destroy', $article->id)}}" method="post">
+            @METHOD ('DELETE')
+            @csrf
+            <button class=" btn btn-danger"><i class="fas fa-trash"></i></button>
+        </form>
 
     </div>
 
