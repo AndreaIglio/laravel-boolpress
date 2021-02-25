@@ -1,6 +1,6 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
+   
+        <div class="container flex">
 
                 <div class="col-md-6 tags"  v-if="body == 'tags'">
                 <div class="card" v-for="(body,index) in apiList" :key="index">
@@ -41,7 +41,7 @@
             <div class="col-md-6 articles"  v-if="body == 'articles'">
                 <div class="card" v-for="(body,index) in apiList" :key="index">              
                     <div class="card-header" >
-                        <h3>Article: {{body.title}}</h3>
+                        <h3>Title: {{body.title}}</h3>
                         <h3>Category: {{body.category_name}}</h3>
 
                     </div>
@@ -59,7 +59,7 @@
                 </div>
             </div>
         </div>
-    </div>
+
 </template>
 
 <script>

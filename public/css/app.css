@@ -1,5 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+.flex {
+  display: flex;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -10944,8 +10948,14 @@ a.text-dark:focus {
   }
 }
 
-.card {
-  margin: 40px 0px;
+.container {
+  justify-content: center;
+}
+
+.container .card {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 500px;
 }
 
 .navbar {

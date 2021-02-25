@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Articles;
+use App\Categories;
+
 use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
@@ -14,7 +16,8 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        //
+         $articles = Articles::all();
+        return view('articles.index',compact('articles'));
     }
 
     /**
@@ -46,7 +49,7 @@ class ArticlesController extends Controller
      */
     public function show(Articles $articles)
     {
-        //
+        return view('articles.show', compact('articles'));
     }
 
     /**
@@ -57,7 +60,7 @@ class ArticlesController extends Controller
      */
     public function edit(Articles $articles)
     {
-        //
+        return view('articles.edit', compact('articles'));
     }
 
     /**

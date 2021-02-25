@@ -37713,91 +37713,87 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _vm.body == "tags"
-        ? _c(
-            "div",
-            { staticClass: "col-md-6 tags" },
-            _vm._l(_vm.apiList, function(body, index) {
-              return _c("div", { key: index, staticClass: "card" }, [
-                _c("div", { staticClass: "card-header" }, [
-                  body.arguments
-                    ? _c("h3", [_vm._v("Argument: " + _vm._s(body.arguments))])
-                    : _vm._e()
-                ]),
+  return _c("div", { staticClass: "container flex" }, [
+    _vm.body == "tags"
+      ? _c(
+          "div",
+          { staticClass: "col-md-6 tags" },
+          _vm._l(_vm.apiList, function(body, index) {
+            return _c("div", { key: index, staticClass: "card" }, [
+              _c("div", { staticClass: "card-header" }, [
+                body.arguments
+                  ? _c("h3", [_vm._v("Argument: " + _vm._s(body.arguments))])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                body.shares
+                  ? _c("h3", [_vm._v("Share: " + _vm._s(body.shares))])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              body.views
+                ? _c("div", { staticClass: "card-footer" }, [
+                    _c("h3", [_vm._v("Views: " + _vm._s(body.views))])
+                  ])
+                : _vm._e()
+            ])
+          }),
+          0
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.body == "categories"
+      ? _c(
+          "div",
+          { staticClass: "col-md-6 categories" },
+          _vm._l(_vm.apiList, function(body, index) {
+            return _c("div", { key: index, staticClass: "card" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _c("h3", [_vm._v("Name: " + _vm._s(body.name))])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                body.over18
+                  ? _c("h3", [_vm._v(" Only adults can see it ")])
+                  : _vm._e(),
                 _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  body.shares
-                    ? _c("h3", [_vm._v("Share: " + _vm._s(body.shares))])
-                    : _vm._e()
-                ]),
-                _vm._v(" "),
-                body.views
-                  ? _c("div", { staticClass: "card-footer" }, [
-                      _c("h3", [_vm._v("Views: " + _vm._s(body.views))])
-                    ])
+                body.over18 == false
+                  ? _c("h3", [_vm._v(" Only adults can see it ")])
                   : _vm._e()
               ])
-            }),
-            0
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.body == "categories"
-        ? _c(
-            "div",
-            { staticClass: "col-md-6 categories" },
-            _vm._l(_vm.apiList, function(body, index) {
-              return _c("div", { key: index, staticClass: "card" }, [
-                _c("div", { staticClass: "card-header" }, [
-                  _c("h3", [_vm._v("Name: " + _vm._s(body.name))])
-                ]),
+            ])
+          }),
+          0
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.body == "articles"
+      ? _c(
+          "div",
+          { staticClass: "col-md-6 articles" },
+          _vm._l(_vm.apiList, function(body, index) {
+            return _c("div", { key: index, staticClass: "card" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _c("h3", [_vm._v("Title: " + _vm._s(body.title))]),
                 _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  body.over18
-                    ? _c("h3", [_vm._v(" Only adults can see it ")])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  body.over18 == false
-                    ? _c("h3", [_vm._v(" Only adults can see it ")])
-                    : _vm._e()
+                _c("h3", [_vm._v("Category: " + _vm._s(body.category_name))])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("h3", [_vm._v(_vm._s(body.content))])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-footer" }, [
+                _c("h3", [
+                  _vm._v("Author: " + _vm._s(body.author) + "\n            ")
                 ])
               ])
-            }),
-            0
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.body == "articles"
-        ? _c(
-            "div",
-            { staticClass: "col-md-6 articles" },
-            _vm._l(_vm.apiList, function(body, index) {
-              return _c("div", { key: index, staticClass: "card" }, [
-                _c("div", { staticClass: "card-header" }, [
-                  _c("h3", [_vm._v("Article: " + _vm._s(body.title))]),
-                  _vm._v(" "),
-                  _c("h3", [_vm._v("Category: " + _vm._s(body.category_name))])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h3", [_vm._v(_vm._s(body.content))])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-footer" }, [
-                  _c("h3", [
-                    _vm._v(
-                      "Author: " + _vm._s(body.author) + "\n                "
-                    )
-                  ])
-                ])
-              ])
-            }),
-            0
-          )
-        : _vm._e()
-    ])
+            ])
+          }),
+          0
+        )
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
