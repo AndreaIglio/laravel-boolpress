@@ -77,9 +77,10 @@ class ArticlesController extends Controller
      * @param  \App\Articles  $articles
      * @return \Illuminate\Http\Response
      */
-    public function edit(Articles $article)
+    public function edit(Articles $article, Categories $categories)
     {
-        return view('articles.edit', compact('article'));
+        $categories = Categories::all();
+        return view('articles.edit', compact('article','categories'));
     }
 
     /**
@@ -91,12 +92,14 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, Articles $article)
     {
+        // dd($article);
         $validatedData = $request->validate([
             'title' => 'required',
             'content' => 'required',
             'author' => 'required',
-            'category_id' => 'nullable',
+            'category_id'=> 'required',
         ]);
+        // dd($validatedData);
         $article->update($validatedData);
         return redirect()->route('articles.index');
        

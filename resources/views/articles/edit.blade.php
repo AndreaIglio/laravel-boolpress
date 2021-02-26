@@ -23,12 +23,17 @@
         <input type="text" name="author" value="{{$article->author}}">
 
 
-        <p class="category">Category: {{$article->category->name}}</p>
+        <label for="category_id">Category:</label>
+        <select name="category_id" id="">
+            @foreach($categories as $category)
+            <option value="{{$category->id}}" name="category_id">
+                {{$category->id}}
+            </option>
+
+            @endforeach
+        </select>
 
         <div class="crud flex">
-            <div class="undo flex">
-                <a href="{{route('articles.edit', $article->id)}}"> <i class="fas fa-undo-alt"></i></a>
-            </div>
             <button class="btn btn-dark" type="submit">
                 Submit
             </button>
