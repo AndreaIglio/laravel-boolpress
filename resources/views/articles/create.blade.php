@@ -22,15 +22,26 @@
 
     <label for="category_id">Category</label>
 
-        <select name="category_id" id="">
-            @foreach($categories as $category)
+    <select name="category_id" id="">
+        @foreach($categories as $category)
 
-            <option value="{{$category->id}}" name="category_id">
+        <option value="{{$category->id}}" name="category_id">
             {{$category->name}}
-            </option>
-            @endforeach
+        </option>
+        @endforeach
 
-        </select>
+    </select>
+
+    <label for="tag_id"> Tags </label>
+    <select name="tag_id[]" id="tag_id" multiple>
+        @foreach($tags as $tag)
+
+        <option value="{{$tag->id}}" name="tag_id">
+            {{$tag->arguments}}
+        </option>
+        @endforeach
+
+    </select>
 
 
     <button class="btn btn-dark" type="submit">

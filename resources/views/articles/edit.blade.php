@@ -1,4 +1,9 @@
 @extends ('layout.app')
+@section('title')
+
+Edit
+
+@endsection
 
 @section('navbar')
 
@@ -17,13 +22,15 @@
         <input type="text" name="title" value="{{$article->title}}">
 
         <label for="content">Content</label>
-        <input type="text" name="content" value="{{$article->content}}">
+        <textarea type="text" name="content" cols="30" rows="10">
+        {{$article->content}}
+        </textarea>
 
         <label for="author">Author</label>
         <input type="text" name="author" value="{{$article->author}}">
 
 
-        
+
         <label for="category_id">Category:</label>
         <select name="category_id" id="">
             @foreach($categories as $category)

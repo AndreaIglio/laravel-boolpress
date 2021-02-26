@@ -5,7 +5,20 @@
     <p>{{$article->content}}</p>
     <h4>Author: {{$article->author}}</h4>
 
+
     <h4 class="category">Category: {{$article->category->name}}</h4>
+
+    <h4 class="tag-post">
+        Tag:
+        @if (count($article->tags) > 0 )
+
+        @foreach ($article->tags as $tag)
+        <span class="tag"> {{$tag->arguments}} </span>
+        @endforeach
+        @else
+        N/a
+        @endif
+    </h4>
 
     <div class="crud flex">
         <button class="btn btn-dark">

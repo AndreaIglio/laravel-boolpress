@@ -1,5 +1,11 @@
 @extends ('layout.app')
 
+@section('title')
+
+Articles
+
+@endsection
+
 @section('navbar')
 
 @include('layout.partials.navbar')

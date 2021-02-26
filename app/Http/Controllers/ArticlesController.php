@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Articles;
 use App\Categories;
+use App\Tags;
+
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -17,7 +19,7 @@ class ArticlesController extends Controller
      */
     public function index(Articles $article)
     {
-         $articles = Articles::latest()->get();
+        $articles = Articles::latest()->get();
         return view('articles.index',compact('articles'));
     }
 
@@ -26,11 +28,11 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Articles $article, Categories $categories)
+    public function create(Articles $article, Categories $categories, Tags $tags)
     {
         $categories = Categories::all();
-      
-        return view('articles.create', compact('categories'));
+        $tags = Tags::all();
+        return view('articles.create', compact('categories','tags'));
     }
 
     /**
@@ -41,17 +43,27 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
+        
+     
         $validatedData = Validator::make($request->all(), [
 
             'title'=> 'required|max:80',
             'content'=> 'required',
             'author'=> 'required',
             'category_id' => 'required',
+            'tag_id' => 'nullable',
 
 
         ])->validate();
+        
+        // dd($validatedData);
         Articles::create($validatedData);
+        
+
+        $article = Articles::orderBy('id', 'desc')->first();
+        $article->tags()->attach($request->tag_id);
+
+        // dd($article);
 
         return redirect()->route('articles.index');
 
