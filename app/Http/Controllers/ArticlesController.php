@@ -89,10 +89,11 @@ class ArticlesController extends Controller
      * @param  \App\Articles  $articles
      * @return \Illuminate\Http\Response
      */
-    public function edit(Articles $article, Categories $categories)
+    public function edit(Articles $article, Categories $categories, Tags $tags)
     {
+        $tags = Tags::all();
         $categories = Categories::all();
-        return view('articles.edit', compact('article','categories'));
+        return view('articles.edit', compact('article','categories','tags'));
     }
 
     /**
@@ -110,9 +111,11 @@ class ArticlesController extends Controller
             'content' => 'required',
             'author' => 'required',
             'category_id'=> 'required',
+            'tag_id' => 'nullable',
         ]);
         // dd($validatedData);
         $article->update($validatedData);
+        $article->tags()->attach($request->tag_id);
         return redirect()->route('articles.index');
        
     }

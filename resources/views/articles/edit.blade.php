@@ -39,6 +39,14 @@ Edit
             </option>
             @endforeach
         </select>
+        <label for="tag_id">Tag: </label>
+        <select name="tag_id" id="">
+            @foreach($tags as $tag)
+            <option value="{{$tag->id}}" name="tag_id">
+                {{$tag->arguments}}
+            </option>
+            @endforeach
+        </select>
 
 
         <div class="crud flex">
