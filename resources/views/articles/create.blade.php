@@ -26,7 +26,7 @@
             @foreach($categories as $category)
 
             <option value="{{$category->id}}" name="category_id">
-            {{$category->id}}
+            {{$category->name}}
             </option>
             @endforeach
 
