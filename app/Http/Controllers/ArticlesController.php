@@ -6,6 +6,7 @@ use App\Articles;
 use App\Categories;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ArticlesController extends Controller
 {
@@ -16,7 +17,7 @@ class ArticlesController extends Controller
      */
     public function index(Articles $article)
     {
-         $articles = Articles::all();
+         $articles = Articles::latest()->get();
         return view('articles.index',compact('articles'));
     }
 
@@ -25,9 +26,11 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Articles $article, Categories $categories)
     {
-        //
+        $categories = Categories::all();
+      
+        return view('articles.create', compact('categories'));
     }
 
     /**
@@ -38,7 +41,23 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $validatedData = Validator::make($request->all(), [
+
+            'title'=> 'required|max:80',
+            'content'=> 'required',
+            'author'=> 'required',
+            'category_id' => 'required',
+
+
+        ])->validate();
+        Articles::create($validatedData);
+
+        return redirect()->route('articles.index');
+
+        
+
+
     }
 
     /**
@@ -76,6 +95,7 @@ class ArticlesController extends Controller
             'title' => 'required',
             'content' => 'required',
             'author' => 'required',
+            'category_id' => 'nullable',
         ]);
         $article->update($validatedData);
         return redirect()->route('articles.index');

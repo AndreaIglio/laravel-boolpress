@@ -8,10 +8,13 @@
 
 @section('content')
 
+@include('layout.partials.add_btn')
+
 @foreach($articles as $article)
 
 @include('articles.partials.card')
 
 @endforeach
+
 
 @endsection
