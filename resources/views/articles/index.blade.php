@@ -14,11 +14,11 @@ Articles
 
 @section('content')
 
-@include('layout.partials.add_btn')
+@include('layout.partials.add_btn', ['element' => 'articles' ])
 
 @foreach($articles as $article)
 
-@include('articles.partials.card_article, ['element' => 'articles' ] ')
+@include('articles.partials.card_article')
 
 @endforeach
 
