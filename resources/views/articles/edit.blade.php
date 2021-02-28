@@ -40,7 +40,8 @@ Edit
             @endforeach
         </select>
         <label for="tag_id">Tag: </label>
-        <select name="tag_id" id="">
+        <select name="tag_id[]" id="" multiple>
+            
             @foreach($tags as $tag)
             <option value="{{$tag->id}}" name="tag_id">
                 {{$tag->arguments}}

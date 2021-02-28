@@ -18,7 +18,7 @@ Articles
 
 @foreach($articles as $article)
 
-@include('articles.partials.card')
+@include('articles.partials.card_article')
 
 @endforeach
 

@@ -14,7 +14,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Categories::all();
+        // dd($categories);
+        return view('categories.index', compact('categories'));
     }
 
     /**
@@ -44,9 +46,11 @@ class CategoriesController extends Controller
      * @param  \App\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function show(Categories $categories)
+    public function show($id)
     {
-        //
+        $category = Categories::find($id);
+       
+        return view('categories.show', compact('category'));
     }
 
     /**

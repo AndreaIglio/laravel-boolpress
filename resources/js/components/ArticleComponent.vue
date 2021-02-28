@@ -35,7 +35,6 @@
 
                 // console.log(response.data);
                 this.articlesList = response.data.data;
-
             }).catch(error => {
                 console.log(error);
                 
@@ -55,6 +54,8 @@
                             console.log(category.name)
                             // article.category_name = category.name
                             Vue.set(article, 'category_name', category.name);
+                            // this.$set(article, 'category_name', category.name);
+
                         }
                     })
                 })

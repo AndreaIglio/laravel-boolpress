@@ -2118,7 +2118,7 @@ __webpack_require__.r(__webpack_exports__);
           if (article.category_id == category.id) {
             console.log(category.name); // article.category_name = category.name
 
-            Vue.set(article, 'category_name', category.name);
+            Vue.set(article, 'category_name', category.name); // this.$set(article, 'category_name', category.name);
           }
         });
       });
