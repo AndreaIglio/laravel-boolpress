@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Tags;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Validator;
+
 class TagsController extends Controller
 {
     /**
@@ -26,9 +28,11 @@ class TagsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        dd($id);
+        $tag = Tags::find($id);
+       return view('tags.create',compact('tag'));
     }
 
     /**
@@ -48,9 +52,10 @@ class TagsController extends Controller
      * @param  \App\Tags  $tags
      * @return \Illuminate\Http\Response
      */
-    public function show(Tags $tags)
+    public function show(Tags $tag)
     {
-        //
+       
+        return view('tags.show', compact('tag'));
     }
 
     /**
@@ -59,9 +64,10 @@ class TagsController extends Controller
      * @param  \App\Tags  $tags
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tags $tags)
+    public function edit(Tags $tag)
     {
-        //
+
+        return view('tags.edit',compact('tag'));
     }
 
     /**
@@ -71,9 +77,19 @@ class TagsController extends Controller
      * @param  \App\Tags  $tags
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tags $tags)
+    public function update(Request $request, Tags $tag)
     {
-        //
+        $validatedData = $request->validate([
+            'arguments' => 'required',
+            'shares' => 'nullable',
+            'views' => 'nullable',
+
+        ]);
+
+        $tag -> update($validatedData);
+
+        return redirect()->route('tags.index');
+
     }
 
     /**

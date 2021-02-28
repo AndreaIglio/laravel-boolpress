@@ -21,6 +21,7 @@ Tags
 
 @endforeach
 
+@include('layout.partials.add_btn', ['element' => 'tags' ])
 
 
 @endsection
