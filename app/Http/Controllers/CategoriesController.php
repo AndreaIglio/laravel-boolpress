@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Categories;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Validator;
+
+
 class CategoriesController extends Controller
 {
     /**
@@ -26,7 +29,9 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        
+
+        return view('categories.create');
     }
 
     /**
@@ -37,7 +42,21 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = Validator::make($request->all(), [
+
+            'name' => 'required|min:3',
+            'over18' => 'required',
+
+
+        ])->validate();
+
+
+        Categories::create($validatedData);
+            
+
+        $category = Categories::latest();
+
+        return redirect()->route('categories.index');
     }
 
     /**
