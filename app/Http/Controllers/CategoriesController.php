@@ -82,8 +82,12 @@ class CategoriesController extends Controller
      * @param  \App\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categories $categories)
+    public function destroy($id)
     {
-        //
+        $category = Categories::find($id);
+
+        // dd($category);
+        $category->delete();
+        return redirect()->route('categories.index');
     }
 }
