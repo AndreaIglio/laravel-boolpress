@@ -18,7 +18,7 @@ Articles
 
 @foreach($articles as $article)
 
-@include('articles.partials.card_article')
+@include('articles.partials.card_article, ['element' => 'articles' ] ')
 
 @endforeach
 

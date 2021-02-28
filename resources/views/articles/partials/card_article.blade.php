@@ -6,7 +6,7 @@
     <h4>Author: {{$article->author}}</h4>
 
 
-    <h4 class="category">Category: {{$article->category->name}}</h4>
+    <h4 class="category">Category: {{$article->category ? $article->category->name : 'N/a'}}</h4>
 
     <h4 class="tag-post">
         Tag:
