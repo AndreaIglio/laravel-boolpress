@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Categories;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Validator;
+
+
 class CategoriesController extends Controller
 {
     /**
@@ -26,7 +29,9 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        
+
+        return view('categories.create');
     }
 
     /**
@@ -37,7 +42,21 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = Validator::make($request->all(), [
+
+            'name' => 'required|min:3',
+            'over18' => 'required',
+
+
+        ])->validate();
+
+
+        Categories::create($validatedData);
+            
+
+        $category = Categories::latest();
+
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -59,9 +78,10 @@ class CategoriesController extends Controller
      * @param  \App\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function edit(Categories $categories)
+    public function edit($id)
     {
-        //
+        $category = Categories::find($id);
+        return view('categories.edit', compact('category'));
     }
 
     /**
@@ -71,9 +91,18 @@ class CategoriesController extends Controller
      * @param  \App\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categories $categories)
+    public function update(Request $request, Categories $category)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'over18' => 'required',
+       ]);
+
+    //    dd($validatedData);
+       
+       $category -> update($validatedData);
+
+       return redirect()->route('categories.index');
     }
 
     /**
@@ -82,8 +111,12 @@ class CategoriesController extends Controller
      * @param  \App\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categories $categories)
+    public function destroy($id)
     {
-        //
+        $category = Categories::find($id);
+
+        // dd($category);
+        $category->delete();
+        return redirect()->route('categories.index');
     }
 }

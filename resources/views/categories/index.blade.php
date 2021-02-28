@@ -22,6 +22,6 @@ Categories
 
 @endforeach
 
-@include('layout.partials.add_btn', ['element' => 'categories' ] );
+@include('layout.partials.add_btn', ['element' => 'categories' ])
 
 @endsection

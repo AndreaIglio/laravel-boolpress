@@ -14,7 +14,7 @@ Articles
 
 @section('content')
 
-@include('layout.partials.add_btn', ['element' => 'articles' ])
+@include('layout.partials.add_btn', ["element" => "articles"])
 
 @foreach($articles as $article)
 
