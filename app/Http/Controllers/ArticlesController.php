@@ -105,7 +105,7 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, Articles $article)
     {
-        // dd($article);
+        dd($article);
         $validatedData = $request->validate([
             'title' => 'required',
             'content' => 'required',
@@ -113,7 +113,7 @@ class ArticlesController extends Controller
             'category_id'=> 'required',
             'tag_id' => 'nullable',
         ]);
-        // dd($validatedData);
+        dd($validatedData);
         $article->update($validatedData);
         $article->tags()->attach($request->tag_id);
         return redirect()->route('articles.index');

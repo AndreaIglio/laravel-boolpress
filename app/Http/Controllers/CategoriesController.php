@@ -59,9 +59,10 @@ class CategoriesController extends Controller
      * @param  \App\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function edit(Categories $categories)
+    public function edit($id)
     {
-        //
+        $category = Categories::find($id);
+        return view('categories.edit', compact('category'));
     }
 
     /**
@@ -71,9 +72,18 @@ class CategoriesController extends Controller
      * @param  \App\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categories $categories)
+    public function update(Request $request, Categories $category)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'over18' => 'required',
+       ]);
+
+    //    dd($validatedData);
+       
+       $category -> update($validatedData);
+
+       return redirect()->route('categories.index');
     }
 
     /**
