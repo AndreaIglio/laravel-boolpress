@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tags extends Model
 {
-    
+
+    protected $fillable = ['arguments', 'shares', 'views'];
+
+
     public function articles(){
 
 
