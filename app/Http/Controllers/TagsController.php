@@ -28,11 +28,11 @@ class TagsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
-        dd($id);
-        $tag = Tags::find($id);
-       return view('tags.create',compact('tag'));
+        
+        
+       return view('tags.create');
     }
 
     /**
@@ -43,7 +43,16 @@ class TagsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = Validator::make($request->all(),[
+            'arguments' => 'required',
+            'views' => 'numeric|min:1|max:999999',
+            'shares' => 'numeric|min:1|max:999999',
+
+        ])->validate();
+
+        Tags::create($validatedData);
+        
+        return redirect()->route('tags.index');
     }
 
     /**
@@ -98,8 +107,11 @@ class TagsController extends Controller
      * @param  \App\Tags  $tags
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tags $tags)
+    public function destroy($id)
     {
-        //
+        $tag = Tags::find($id);
+
+        $tag->delete();
+        return redirect()->route('tags.index');
     }
 }

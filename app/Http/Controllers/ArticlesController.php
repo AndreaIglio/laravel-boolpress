@@ -105,7 +105,7 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, Articles $article)
     {
-        dd($article);
+        
         $validatedData = $request->validate([
             'title' => 'required',
             'content' => 'required',
